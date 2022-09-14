@@ -1,24 +1,52 @@
-# README
+# Rails Blog App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This blog app is built for learing rails by building blog application, which handle blog posts, users, comments and likes.
 
-Things you may want to cover:
+# Built with
 
-* Ruby version
+1. Ruby on Rails 7.0.4
+2. Ruby 3.1.2
+3. PostgreSQL
+4. Rubocop
 
-* System dependencies
+# Getting Started
 
-* Configuration
+Follow how to set up step to get started
 
-* Database creation
+# Prerequisites
 
-* Database initialization
+1.  PostgreSQL installed
+2.  Ruby on Rails installed
+3.  Ruby installed
 
-* How to run the test suite
+# Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+1.  clone the project from 'git@github.com:worashf/rails-blog-app.git' to clone:
+    => open terminal and type ' git clone git@github.com:worashf/rails-blog-app.git'
+2.  cd to the project folder by type 'cd rails-blog-app'
+3.  install dependecies by running ' bundle' on the terminal
+4.  to run the project ' rails server'
+5.  To create the database type 'rails db:migrate'
 
-* Deployment instructions
+## Authors:
 
-* ...
+Worash Abocherugn
+
+- <a href="https://github.com/worashf?">Github</a>
+- <a href="https://twitter.com/tinamura2">Twitter</a>
+- <a href="https://www.linkedin.com/in/timothy-tinashe-murambinda/">LinkedIn</a>
+
+# handshake Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the issues page.
+Show your support
+
+Give a star if you like this project!
+
+# Acknowledgments
+
+    Microverse
+    Gorails
+    Stack Overflow
