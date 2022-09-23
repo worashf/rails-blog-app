@@ -6,7 +6,7 @@
    <p class="text-info col-6">  <%= @post.author.name %> </p>
   
     <p class="text-info col-3"> Comments: <%=   @post.comments_counter || 0 %> </p>
-    <p class="text-info col-3"> Likes: <%=   @post.likes_counter || 0 %> </p>
+      <%= render partial: "shared/like_form", locals: {like: Like.new, user: @post.author, post: @post}  %> 
    <hr>
  </div>
 
@@ -15,7 +15,10 @@
     <h4 class="card-title border-bottom lead text-primary"> <%= @post.title %></h4> 
     <p class="text-muted mt-2"><%= @post.text %></p>
  
-  <div class="post-text">Text placeholder</div>
+ 
+     <%= render partial: "shared/comment_form", locals: { comment:  Comment.new, user: @post.author, post:  @post} %>
+
+
  <%= render 'shared/post_comment', comments: @comments if @comments.any? %>
  </div>
   </div>
