@@ -1,21 +1,20 @@
-<h1>User details</h1>
-<p>Here is the details of a user given its id</p>
-<%= render 'shared/user' %>
+<div class="row">
+<h1 class="col-10">User details</h1>
+<div class="col-1 ml-3">
+<%= link_to "Back", users_path, class: "btn btn-primary " %>
+</div>
+</div>
+<%= render 'shared/user_card', user: @user %>
 
 <div class="user-bio">
-  <h2>Bio </h2>
-  <p>Bio placeholder</p>
+<%= render 'shared/user_bio', user: @user%>
 </div>
+ <% if @three_posts.any? %>
+<% @three_posts.each do  |p| %>
+<%= render 'shared/post_card', post: p %>
 
-<ul class="posts">
-  <li class="post">
-    <div class="post-container">
-      <div class="post-title">Title placeholder</div>
-      <div class="post-text">Text placeholder</div>
-      <div class="post-comments-counter">Number of Comments: comments_counter placeholder</div>
-      <div class="post-likes-counter">Number of Likes: likes_counter placeholder</div>
-    </div>
-  </li>
-</ul>
-
-<button type="button">See all posts</button>
+<%end%>
+<%= link_to "See all posts", user_posts_path(@user), class: "d-flex justify-content-center mt-3 "  if @three_posts.length > 0 %>
+ <% else %>
+  <p class ="lead text-danger text-center"> No posts for this user yet </p>
+ <% end %>

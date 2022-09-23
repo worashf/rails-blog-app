@@ -1,0 +1,9 @@
+<div class ="mx-3">
+<h4 class ="text-primary"> Comments </h4>
+<% comments.each do  |c|  %>
+<strong class="text-info" ><%= c.author.name %> </strong> <br>
+  <p class= "m-1 text-muted "> <%= c.text %> </p>
+<% end %>
+</div>
+
+

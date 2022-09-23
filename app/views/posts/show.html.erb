@@ -1,17 +1,23 @@
-<h1>Post details</h1>
-<p>Here is post of a given user given its id</p>
-
-<div class="detailed_post">
-  <div class="post-container">
-    <div class="post-title">Title placeholder by Username placeholder</div>
-    <div class="post-comments-counter">Number of Comments: comments_counter placeholder</div>
-    <div class="post-likes-counter">Number of Likes: likes_counter placeholder</div>
-  </div>
-  <div class="post-text">Text placeholder</div>
-  <ul class="post-comments">
-    <li class="comment">Username: text placeholder</li>
-  </ul>
-  
+ <div class="d-flex justify-content-between">
+<h1 class="text-primary">Post details</h1>
+<%=  link_to "Back", user_posts_path(@user) %>
 </div>
+ <div class="row">
+   <p class="text-info col-6">  <%= @post.author.name %> </p>
+  
+    <p class="text-info col-3"> Comments: <%=   @post.comments_counter || 0 %> </p>
+    <p class="text-info col-3"> Likes: <%=   @post.likes_counter || 0 %> </p>
+   <hr>
+ </div>
 
-<button type="button">Pagination</button>
+
+ <div class ="border-bottom">
+    <h4 class="card-title border-bottom lead text-primary"> <%= @post.title %></h4> 
+    <p class="text-muted mt-2"><%= @post.text %></p>
+ 
+  <div class="post-text">Text placeholder</div>
+ <%= render 'shared/post_comment', comments: @comments if @comments.any? %>
+ </div>
+  </div>
+
+

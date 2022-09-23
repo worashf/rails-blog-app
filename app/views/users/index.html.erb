@@ -1,3 +1,9 @@
-<h1>Users</h1>
-<p>Here is the list of users retrieved from the database</p>
-<%= render 'shared/user' %>
+<h1 class= "text-primary mt-3">Users List</h1>
+
+<% @users.each do |u| %>
+
+<h2 class="nav-link"><%= link_to u  do %> </h2>
+ <%= render "shared/user_card", user: u %>
+<%end%>
+
+<%end%>

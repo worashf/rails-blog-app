@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.wrapper {
+  min-height: 98vh;
+  margin: 0.5rem 2rem;
+  padding: 1rem;
+}

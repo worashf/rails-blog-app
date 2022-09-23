@@ -1,19 +1,28 @@
-<h1>Posts</h1>
-<p>Here is a list of posts of a given user</p>
-<%= render 'shared/user' %>
+<div class="row">
+<h1 class="col-10">Posts list</h1>
+<div class="col-1 ml-3">
+<%= link_to "Back", users_path, class: "btn btn-primary " %>
+</div>
+</div>
+<% if @posts.any? %>
+<%=  render  'shared/user_card',  user: @user%>
 
-<ul class="posts">
-  <li class="post">
-    <div class="post__container">
-      <div class="post__title">Title placeholder</div>
-      <div class="post__text">Text placeholder</div>
-      <div class="post__comments_counter">Number of Comments: comments_counter placeholder</div>
-      <div class="post__likes_counter">Number of Likes: likes_counter placeholder</div>
-    </div>
-    <ul class="post_comments">
-      <li class="comment">Username: text placeholder</li>
-    </ul>
-  </li>
-</ul>
+<% @posts.each do |p| %>
+   <div class ="border">
+   <%= render 'shared/post_card', post: p %>
+  
+   <%= render 'shared/post_comment', comments: p.recent_five_comments if p.recent_five_comments.any? %>
+ </div>
+   <% end %>
+
+ 
+
+
+<% else %>
+  <p> This user doesn't have any post yet! </p>
+<% end %>
+
+
+
 
 <button type="button">Pagination</button>
