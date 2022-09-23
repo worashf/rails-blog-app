@@ -1,7 +1,8 @@
 <div class="row">
-<h1 class="col-10">User details</h1>
-<div class="col-1 ml-3">
-<%= link_to "Back", users_path, class: "btn btn-primary " %>
+<h1 class="col-6">User details</h1>
+<div class="col-4  menu">
+<%= link_to "New Post", new_user_post_path(@user),class: "link" %>
+<%= link_to "Back", users_path, class: "link " %>
 </div>
 </div>
 <%= render 'shared/user_card', user: @user %>
