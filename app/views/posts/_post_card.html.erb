@@ -6,12 +6,8 @@
       <div class="card-text text-secondary lead"><%= post.text.length >90 ? post.text.first(90).concat("..."): post.text %></div>
       <div class ="row">
      <div class="col-8"> </div>
-      <div class=" col-2  text-info"> 
-
-<span class="fa fa-comment btn"></span>
-
-Comments: <%= post.comments_counter || 0%></div>
-
+  
+     <%= render partial: "shared/comment_form", locals: { comment:  Comment.new, user: post.author, post:  post} %>
 
 
 

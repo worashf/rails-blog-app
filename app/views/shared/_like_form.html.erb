@@ -1,0 +1,9 @@
+
+<div class="col-2 text-danger d-felx jusfify">
+
+<%= form_with model: like, url: user_post_likes_url(user, post), method: :post do |f| %>
+  <span class= "fa fa-heart btn">  <%= f.submit "#{post.likes_counter || 0}" %> </span>
+     
+ <% end %>
+
+ </div>
