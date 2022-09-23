@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 .wrapper {
   min-height: 98vh;
   margin: 0.5rem 2rem;
@@ -22,15 +21,14 @@
 }
 
 .menu {
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
-.link{
+
+.link {
   font-family: 'Courier New', Courier, monospace;
   width: 10rem;
-  padding:  0 1rem;
+  padding: 0 1rem;
   margin: 0 2rem;
   font-weight: 700;
-
-
 }
