@@ -1,0 +1,7 @@
+    <div class=" col-8  text-info"> 
+<h5 class = "fa fa-comment"> Add your comment </h5>
+
+<%= form_with model: comment, url: user_post_comments_url(user, post) do |f| %>
+  <%= f.text_area :text, class: "form-control"%>
+  <%= f.submit "Comment", class: "mt-3 btn btn-primary" %>
+<% end %> </div>
