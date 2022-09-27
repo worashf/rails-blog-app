@@ -1,6 +1,9 @@
  <div class="d-flex justify-content-between">
 <h1 class="text-primary">Post details</h1>
-<%=  link_to "Back", user_posts_path(@user) %>
+<%=  link_to user_post_path(@post.author, @post)  do %> 
+      <%=  @post.title %>
+      <% end %>
+<%=  link_to "Back", user_posts_path(@post.author) %>
 </div>
  <div class="row">
    <p class="text-info col-6">  <%= @post.author.name %> </p>
@@ -19,8 +22,6 @@
      <%= render partial: "shared/comment_form", locals: { comment:  Comment.new, user: @post.author, post:  @post} %>
 
 
- <%= render 'shared/post_comment', comments: @comments if @comments.any? %>
+ <%= render 'shared/post_comment', comments: @post.comments if @post.comments.any? %>
  </div>
   </div>
-
-

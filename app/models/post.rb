@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   after_save :update_posts_counter
 
   def recent_five_comments
-    comments.includes(:post).order(created_at: :desc).limit(5)
+    comments.includes(:author).order(created_at: :desc).limit(5)
   end
 
   private
