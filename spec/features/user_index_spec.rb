@@ -4,7 +4,7 @@ require 'helpers/model_helper'
 RSpec.describe 'Users', type: :feature do
   context 'user index page' do
     before(:each) do
-      @name = 'user'
+      @name = 'user name'
       @user = create_user(@name)
       @user.save
       visit users_path
