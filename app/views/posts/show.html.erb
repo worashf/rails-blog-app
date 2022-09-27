@@ -1,5 +1,8 @@
  <div class="d-flex justify-content-between">
 <h1 class="text-primary">Post details</h1>
+<%=  link_to user_post_path(@post.author, @post)  do %> 
+      <%=  @post.title %>
+      <% end %>
 <%=  link_to "Back", user_posts_path(@post.author) %>
 </div>
  <div class="row">
