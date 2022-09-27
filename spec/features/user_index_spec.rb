@@ -5,11 +5,9 @@ RSpec.describe 'Users', type: :feature do
   context 'user index page' do
     before(:each) do
       @name = 'user'
-      @user =create_user(@name)
+      @user = create_user(@name)
       @user.save
       visit users_path
-      
- 
     end
 
     it 'should show username of users' do
@@ -27,11 +25,10 @@ RSpec.describe 'Users', type: :feature do
       @user.posts_counter = 1
 
       [@user].each(&:save)
-  
+
       visit users_path
-  
+
       expect(page).to have_content 'Numbers of posts: 1'
- 
     end
 
     it 'should click open profile button and redirect to that user show page' do
@@ -39,7 +36,5 @@ RSpec.describe 'Users', type: :feature do
 
       expect(page).to have_current_path(user_path(@user))
     end
-
-  
   end
 end
