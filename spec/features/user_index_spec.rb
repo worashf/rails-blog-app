@@ -1,20 +1,43 @@
 require 'rails_helper'
-require 'helpers/model_spec_helper'
+require 'helpers/model_helper'
 
-RSpec.describe 'Users', type: :system do 
-    context "User index page test" do 
-        before(:each) do 
-          @name1 = "user 1"
-           user1= create_user(name1)
-           @name2 = "user 2"
-           user2= create_user(name2)
-           visit users_path
-        end
-        it "should show the user name of users" do 
-            expect(page).to have_content @name1
-            expect(page).to have_content @name2
-        end
-
-        end
+RSpec.describe 'Users', type: :feature do
+  context 'user index page' do
+    before(:each) do
+      @name = 'user'
+      @user =create_user(@name)
+      @user.save
+      visit users_path
+      
+ 
     end
+
+    it 'should show username of user/users' do
+      expect(page).to have_content('user')
+    end
+
+    it 'should show image of users' do
+      expect(page).to have_css("img[src*='photo-url']")
+    end
+
+    it 'should show number of posts of users' do
+      expect(page).to have_content('Numbers of posts: 0')
+    end
+    it 'should show number of posts of users' do
+      @user.posts_counter = 1
+
+      [@user].each(&:save)
+  
+      visit users_path
+  
+      expect(page).to have_content 'Numbers of posts: 1'
+ 
+    end
+
+    it 'should click open profile button and redirect to that user show page' do
+    expect(page).to have_content('Numbers of posts: 0')
+    end
+
+  
+  end
 end
