@@ -12,7 +12,7 @@ RSpec.describe 'Users', type: :feature do
  
     end
 
-    it 'should show username of user/users' do
+    it 'should show username of users' do
       expect(page).to have_content('user')
     end
 
@@ -35,7 +35,9 @@ RSpec.describe 'Users', type: :feature do
     end
 
     it 'should click open profile button and redirect to that user show page' do
-    expect(page).to have_content('Numbers of posts: 0')
+      click_link @name
+
+      expect(page).to have_current_path(user_path(@user))
     end
 
   
