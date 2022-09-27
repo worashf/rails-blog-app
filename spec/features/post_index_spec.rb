@@ -38,10 +38,35 @@ RSpec.describe "Posts", type: :feature do
         expect(@posts.first.comments_counter).to be 5
         expect(page).to have_content 'Comments: 5'
      end
-
+     it "Should show the numbers of comments for post" do
+      expect(@posts.first.comments_counter).to be 5
+      expect(page).to have_content 'Comments: 5'
+   end
+   it "Should show the numbers of like for post"  do
+      expect(@posts.first.likes_counter).to be 0
+   end
+   it "Should have pagination to see more posts" do
+      expect(page).to have_button('Pagination')
+   end
+   it " Should   redirects to that post's show page, when click" do
+      click_link @posts.first.title
+      expect(page).to have_current_path(user_post_path(@user, @posts.first))
+   end
      it "Should show the numbers of like for post"  do
         expect(@posts.first.likes_counter).to be 0
      end
+
+     
+
+
+
+
+
+
+
+
+
+
 
      it "Should have pagination to see more posts" do
         expect(page).to have_button('Pagination')
