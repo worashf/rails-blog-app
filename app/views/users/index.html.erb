@@ -2,7 +2,7 @@
 
 <% @users.each do |u| %>
 
-<h2 class="nav-link"><%= link_to u  do %> </h2>
+<%= link_to u  do %> 
  <%= render "shared/user_card", user: u %>
 <%end%>
 
