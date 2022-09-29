@@ -7,7 +7,7 @@
   <%= link_to "Delete Post", user_post_path(current_user, post), data: {
                     turbo_method: :delete,
                       turbo_confirm: "Are you sure?"
-                    } %>
+                    }, class: "btn btn-primary btn-sm"  %>
     <% end %>
 
       </div>
