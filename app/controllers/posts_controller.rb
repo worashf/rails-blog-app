@@ -1,11 +1,7 @@
 class PostsController < ApplicationController
- 
   def index
-  
     @posts = Post.includes(:author).where(author: params[:user_id])
     @user = User.find(params[:user_id])
-
-   
   end
 
   def show
@@ -28,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def new
-
     @post = Post.new
   end
 
@@ -38,7 +33,6 @@ class PostsController < ApplicationController
 
     redirect_to user_posts_path(params[:user_id])
   end
-
 
   private
 
