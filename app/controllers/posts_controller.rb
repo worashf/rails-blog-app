@@ -1,9 +1,15 @@
 class PostsController < ApplicationController
+ 
   def index
+  
     @posts = Post.includes(:author).where(author: params[:user_id])
+    @user = User.find(params[:user_id])
+
+   
   end
 
   def show
+    @user = User.find(params[:user_id])
     @post = Post.includes(:author, comments: [:author]).find(params[:id])
   end
 
@@ -13,7 +19,7 @@ class PostsController < ApplicationController
     @post.author = @user
     if @post.save
 
-      redirect_to user_posts_path(@user), notice: 'Post saved successfully'
+      redirect_to user_posts_path(@user.id)
     else
 
       flash.now[:error] = 'Post title can not be empty'
@@ -22,8 +28,11 @@ class PostsController < ApplicationController
   end
 
   def new
+
     @post = Post.new
   end
+
+
 
   private
 
