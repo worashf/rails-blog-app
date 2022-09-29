@@ -1,7 +1,8 @@
     <div class="border-bottom border-primary  p-3">
-      <div class="card-title text-primary lead"><%=  link_to user_post_path(post.author, post)  do %> 
-      <%=  post.title %>
+      <div class="card-title text-primary lead"><%=  link_to user_post_path(current_user, post)  do %> 
+   <h4 class= "text-info">   <%=  post.title %> </h4>
       <% end %>
+  
       </div>
       <div class="card-text text-secondary lead"><%= post.text.length >90 ? post.text.first(90).concat("..."): post.text %></div>
       <div class ="row">
