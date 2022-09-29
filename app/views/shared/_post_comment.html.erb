@@ -1,8 +1,15 @@
 <div class ="mx-3">
 <h4 class ="text-primary"> Comments </h4>
 <% comments.each do  |c|  %>
-<strong class="text-info" ><%= c.author.name %> </strong> <br>
-  <p class= "m-1 text-muted "> <%= c.text %> </p>
+<h5 class="text-info mt-3" ><%= c.author.name %> </h5> 
+  <p class= "mb-3 text-black "> <%= c.text %> </p>
+    <% if can? :manage, c %>
+    <%= link_to "Delete comment", user_post_comment_path(c.author, c.post, c), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }, class: "btn btn-danger btn-sm" %>
+    
+  <% end %>
 <% end %>
 </div>
 

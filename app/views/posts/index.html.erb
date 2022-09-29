@@ -1,14 +1,14 @@
 <div class="row">
 <h1 class="col-6">Posts list</h1>
 <div class="col-4  menu">
-<%= link_to "New Post", new_user_post_path(@posts.first.author) %>
+<%= link_to "New Post", new_user_post_path(@user) %>
 <%= link_to "Back", users_path, class: "link " %>
 </div>
 <p class= "text-success"><%= notice %></p>
 
 </div>
 <% if @posts.any? %>
-<%=  render  'shared/user_card',  user: @posts.first.author%>
+<%=  render  'shared/user_card',  user: @user%>
 
 <% @posts.each do |p| %>
    <div class ="border">
