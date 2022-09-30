@@ -19,9 +19,7 @@ class Api::CommentsController < ApplicationController
         @commentor = current_user
         @post = Post.find(params[:post_id])
         @post_author = @post.author
-    
        
-    
         @comment = Comment.new(comment_params)
         @comment.post = @post
         @comment.author = @commentor
