@@ -51,6 +51,8 @@ gem 'bootsnap', require: false
 gem 'cancancan', '~> 1.9'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'sendgrid-ruby'
+gem 'jwt'
+gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'bullet'
