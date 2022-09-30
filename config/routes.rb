@@ -11,7 +11,7 @@ Rails.application.routes.draw do
  root to: "users#index"
 
  resources :users, param: :_user_id
- post 'api/v1/auth/login', to: 'authentication#login'
+ post 'api/login', to: 'authentication#login'
 
  namespace :api, defaults: { format: :json } do
      resources :users, only: %i[index show] do
