@@ -8,12 +8,8 @@ class JsonWebToken
     JWT.encode payload, HMAC_SECRET, ALGORITHM_TYPE
   end
 
-  def self.decode(token)
-    body = JWT.decode(token, JWT_SECRET)[0]
-    HashWithIndifferentAccess.new body
-  rescue JWT::ExpiredSignature, JWT::VerificationError => e
-    raise ExceptionHandler::ExpiredSignature, e.message
-  rescue JWT::DecodeError, JWT::VerificationError => e
-    raise ExceptionHandler::DecodeError, e.message
+  def jwt_decode(token)
+    decoded = JWT.decode(token, SECRET_KEY)[0]
+    HashWithIndifferentAccess.new decoded
   end
 end
