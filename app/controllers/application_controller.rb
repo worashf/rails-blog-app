@@ -1,7 +1,25 @@
+require_relative '../services/json_web_token'
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :authenticate_user!
+  before_action :authorize_request
   before_action :update_allowed_parameters, if: :devise_controller?
+
+  def authorize_request
+    header = request.headers['Authorization']
+    if header
+      header = header.split.last
+      begin
+        @decoded = JsonWebToken.decode(header)
+        @current_user = User.find_by_id!(@decoded[:user_id])
+      rescue ActiveRecord::RecordNotFound || JWT::DecodeError => e
+        render json: { errors: e.message }, status: :unauthorized
+      end
+    else
+      render json: { errors: 'Unauthorized user' }, status: :unauthorized
+    end
+  end
 
   protected
 
